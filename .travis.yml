@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - stable
+script:
+  - "./node_modules/.bin/gulp build"
+  - npm test
+deploy:
+  provider: npm
+  email: jopecko@gmail.com
+  on:
+    tags: true
+  api_key:
+    secure: qP/X8bf1yyz6gL342OBMvAn/84gtETWA+QmQWrnkaq0uL2/cSwWTaZ/wyXUqkzYE4/wG5z+tT32CX1wdTm6v1UaAzEtW277dRyF44NHlvoGsAZm5t0pGFgHm56rtFBxJxX36vym+OQEheWp+acLCPSH2A893E8KmWbmMBrLTMESmulO4L7pDu/6AKzfR9EJvvdSV5mj805paJS4j/SZwBXruuyZTIi1i204eeed/df25X0h8ZFB1EVMreOmGg5wFUI0fl771o8OeV6qxCik88ZSrZUlAHkrVIxqkqyn8bgiMK2h9qZtZngA4HLahLAWUtI/T72F1rG7Tp6bqr8mc5L9wGxLoz2ApMLX8x9eYMVcu+nfgcrnBObdstHAnPkJk4iWmlH86T+vWBLLcdpH60Bc7blNpkcmLTOPTeH4521VXMfY4yFoPUsCitEOGzDfl/t/TpwttCjE0vUbXJgFn96rzma8Uv7deVJxsDO66yIc48jPoZuwmR9lUkQ50ykkNLHQvSh/2/F/yREEPGnwvaLPM8QAI3ClogfAqR4mSRnzyLfUd9Rjb9/jgukDvPHRgZqTdTGZl0y/kaxElrI8UNi1pB/dGbYuwZVPYzvxL58xqRHVPVSn4zN7B/DNtfbmlRvbAvDH6i8GknFOB/eVx90KpD7dosBrdL5nodqQZOt4=
+after_deploy: cat /home/travis/build/jopecko/babel-solo/npm-debug.log
